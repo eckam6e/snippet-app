@@ -4,5 +4,5 @@ export default axios.create({
   headers: {
     "X-Requested-With": "XMLHttpRequest",
   },
-  withCredentials: true,
+  withCredentials: true
 });

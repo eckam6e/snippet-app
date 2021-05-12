@@ -19,11 +19,13 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+    meta: { requiresNotAuth: true }
   },
   {
     path: "/snippet/new",
     name: "NewSnippet",
     component: NewSnippet,
+    meta: { requiresAuth: true }
   },
   {
     path: "/snippet/:id(\\d+)",
