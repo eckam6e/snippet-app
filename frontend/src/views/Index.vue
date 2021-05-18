@@ -1,15 +1,20 @@
 <template>
   <div>
-    <ul>
-      <li v-for="s in snippets" :key="s.id">
-        {{ s.title }}： {{ s.content }} 
-        <router-link :to="{ name: 'ShowSnippet', params: { id: s.id } }">詳細</router-link>
-        <button @click="deleteTarget = s.id; showModal = true">削除</button>
-      </li>
-    </ul>
-    <modal v-if="showModal" @cancel="showModal = false" @ok="deleteSnippet(); showModal = false;">
-      <div slot="body">Are you sure?</div>
-    </modal>
+    <v-card style="margin-top:10px" v-for="s in snippets" :key="s.id">
+        <v-card-title primary-title>
+          <h3 class="headline">{{ s.id }} : {{ s.title }}</h3>
+        </v-card-title>
+        <div style="margin: 10px 20px;">
+          <textarea style='width:100%; height:300px; background-color:#efefef; padding:3px' v-model="s.content"></textarea>
+        </div>
+        <v-card-actions>
+          <router-link :to="{ name: 'ShowSnippet', params: { id: s.id } }">詳細</router-link>
+          <button @click="deleteTarget = s.id; showModal = true">削除</button>
+        </v-card-actions>
+        <modal v-if="showModal" @cancel="showModal = false" @ok="deleteSnippet(); showModal = false;">
+          <div slot="body">Are you sure?</div>
+        </modal>
+      </v-card>
   </div>
 </template>
 

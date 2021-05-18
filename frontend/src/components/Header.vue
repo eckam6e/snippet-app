@@ -3,8 +3,7 @@
     <v-toolbar dark>
       <v-toolbar-title><router-link to="/">Snippet APP</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
-      <router-link to="/snippet/new"><v-btn>New Snippet</v-btn></router-link>
-      <router-link to="/login"><v-btn>a</v-btn></router-link>
+      <slot></slot>
     </v-toolbar>
   </div>
 </template>

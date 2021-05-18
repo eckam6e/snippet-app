@@ -1,15 +1,15 @@
 <template>
   <v-app id="app">
-    <Header></Header>
-
-    <template v-if="!isAuthenticated">
-      <router-link to="/signup"><v-btn>Sign Up</v-btn></router-link>
-      <router-link to="/login"><v-btn>Log In</v-btn></router-link>
-    </template>
-    <template v-else>
-      <span  class="logout" @click="logOut"><v-btn>Log Out</v-btn></span>
-    </template>
-
+    <Header>
+      <template v-if="!isAuthenticated">
+        <router-link to="/snippet/new"><v-btn>New Snippet</v-btn></router-link>
+        <router-link to="/signup"><v-btn>Sign Up</v-btn></router-link>
+        <router-link to="/login"><v-btn>Log In</v-btn></router-link>
+      </template>
+      <template v-else>
+        <span  class="logout" @click="logOut"><v-btn>Log Out</v-btn></span>
+      </template>
+    </Header>
     <v-main>
       <router-view />
     </v-main>
