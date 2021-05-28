@@ -2,12 +2,12 @@
   <v-app id="app">
     <Header>
       <template v-if="!isAuthenticated">
-        <router-link to="/snippet/new"><v-btn>New Snippet</v-btn></router-link>
-        <router-link to="/signup"><v-btn>Sign Up</v-btn></router-link>
-        <router-link to="/login"><v-btn>Log In</v-btn></router-link>
+        <router-link to="/signup"><v-btn>新規登録</v-btn></router-link>
+        <router-link to="/login"><v-btn>ログイン</v-btn></router-link>
       </template>
       <template v-else>
-        <span  class="logout" @click="logOut"><v-btn>Log Out</v-btn></span>
+        <router-link to="/review/new"><v-btn>投稿</v-btn></router-link>
+        <span class="logout" @click="logOut"><v-btn>ログアウト</v-btn></span>
       </template>
     </Header>
     <v-main>
@@ -17,28 +17,29 @@
 </template>
 
 <script>
-  import Header from "./components/Header.vue";
+import Header from "./components/Header.vue";
 
-  export default {
-    name: 'App',
-    components: {
-      Header : Header
+export default {
+  name: "App",
+  components: {
+    Header: Header,
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.authData !== null;
     },
-    computed: {
-    isAuthenticated () {
-      return this.$store.getters.authData !== null
-      }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch("logout", this.$store.getters.authData);
     },
-    methods: {
-      logOut () {
-        this.$store.dispatch('logout', this.$store.getters.authData)
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style scoped>
-body {
-  margin:0;
+* {
+  margin: 0;
+  text-decoration: none;
 }
 </style>

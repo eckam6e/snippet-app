@@ -8,27 +8,25 @@
       <dt>Content</dt>
       <dd>{{ snippet.content }}</dd>
     </dl>
-    <router-link :to="{ name: 'EditSnippet' }">編集</router-link>
+    <router-link :to="{ name: 'ReviewEdit' }">編集</router-link>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data: function () {
     return {
-      snippet: {}
-    }
+      snippet: {},
+    };
   },
-  mounted () {
+  mounted() {
     axios
       .get(`/api/snippets/${this.$route.params.id}.json`)
-      .then(response => (
-        this.snippet = response.data
-        ))
-  }
-}
+      .then((response) => (this.snippet = response.data));
+  },
+};
 </script>
 
 <style scoped>

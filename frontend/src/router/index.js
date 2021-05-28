@@ -3,9 +3,9 @@ import VueRouter from "vue-router";
 
 import Index from "../views/Index.vue";
 import Login from "../views/Login.vue";
-import NewSnippet from "../views/NewSnippet.vue";
-import ShowSnippet from "../views/ShowSnippet.vue";
-import EditSnippet from "../views/EditSnippet.vue";
+import ReviewNew from "../views/ReviewNew.vue";
+import ReviewShow from "../views/ReviewShow.vue";
+import ReviewEdit from "../views/ReviewEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -22,20 +22,20 @@ const routes = [
     meta: { requiresNotAuth: true }
   },
   {
-    path: "/snippet/new",
-    name: "NewSnippet",
-    component: NewSnippet,
+    path: "/review/new",
+    name: "ReviewNew",
+    component: ReviewNew,
     meta: { requiresAuth: true }
   },
   {
-    path: "/snippet/:id(\\d+)",
-    name: "ShowSnippet",
-    component: ShowSnippet,
+    path: "/review/:id(\\d+)",
+    name: "ReviewShow",
+    component: ReviewShow,
   },
   {
-    path: "/snippet/:id(\\d+)/edit",
-    name: "EditSnippet",
-    component: EditSnippet,
+    path: "/review/:id(\\d+)/edit",
+    name: "ReviewEdit",
+    component: ReviewEdit,
   },
 ];
 
